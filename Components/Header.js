@@ -65,45 +65,11 @@ const Header = () => {
   const [imageURI, setImageURI] = useState("");
   const [savedImagePath, setSavedImagePath] = useState("");
 
-  const takeScreenShot = () => {
-    // To capture Screenshot
-    captureScreen({
-      // Either png or jpg (or webm Android Only), Defaults: png
-      format: "jpg",
-      // Quality 0.0 - 1.0 (only available for jpg)
-      quality: 0.8,
-    }).then(
-      //callback function to get the result URL of the screnshot
-      (uri) => {
-        Share.share({ title: "image", url: uri });
-        setSavedImagePath(uri);
-        setImageURI(uri);
-      },
-      (error) => console.error("Oops, Something Went Wrong", error)
-    );
-    //console.log(savedImagePath);
-    //savePicture(savedImagePath);
-  };
   return (
     <>
-      <Appbar.Header style={{ backgroundColor: "#5e6472", height: "5%" }}>
-        {/* <Appbar.Action
-          style={{ marginTop: "10%" }}
-          icon="camera"
-          onPress={getCameraPermission}
-        />
-        <Appbar.Content
-          title={
-            <Text style={{ fontSize: 30, fontWeight: "bold" }}>Faisal</Text>
-          }
-          style={{ width: "100%" }}
-        /> */}
-        {/* <Appbar.Action
-          style={{ marginTop: "10%" }}
-          icon="dots-vertical"
-          onPress={_handleMore}
-        /> */}
-      </Appbar.Header>
+      <Appbar.Header
+        style={{ backgroundColor: "#5e6472", height: "5%" }}
+      ></Appbar.Header>
     </>
   );
 };
